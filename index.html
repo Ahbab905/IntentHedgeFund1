@@ -1,0 +1,1981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intent Hedge Fund - Premium Digital Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Mobile-first responsive design */
+        @media (max-width: 768px) {
+            .text-6xl { font-size: 3rem; }
+            .text-8xl { font-size: 4rem; }
+            .text-5xl { font-size: 2.5rem; }
+            .text-4xl { font-size: 2rem; }
+            .text-3xl { font-size: 1.5rem; }
+            .text-2xl { font-size: 1.25rem; }
+            .text-xl { font-size: 1.125rem; }
+            
+            .container { padding-left: 1rem; padding-right: 1rem; }
+            
+            .service-card { margin-bottom: 1rem; }
+            
+            .chatbot { bottom: 10px; right: 10px; }
+            
+            #chatbotWindow { width: 90vw; max-width: 320px; }
+            
+            .hero-buttons { flex-direction: column; gap: 1rem; }
+            .hero-buttons button { width: 100%; }
+            
+            .stats-grid { flex-direction: column; text-align: center; gap: 2rem; }
+            
+            .nav-mobile { display: block; }
+            .nav-desktop { display: none; }
+        }
+        
+        @media (min-width: 769px) {
+            .nav-mobile { display: none; }
+            .nav-desktop { display: flex; }
+        }
+        
+        @media (max-width: 640px) {
+            .particle { display: none; }
+            .floating-animation { animation: none; }
+            
+            .logo-container { flex-direction: column; align-items: center; text-align: center; }
+            .logo-container svg { margin-bottom: 0.5rem; }
+            
+            .contact-grid { grid-template-columns: 1fr; }
+            .about-grid { grid-template-columns: 1fr; }
+            
+            .service-grid { grid-template-columns: 1fr; }
+        }
+        
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .service-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        @media (min-width: 1025px) {
+            .service-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        /* Advanced Logo Animations */
+        .logo-animation {
+            animation: logoFloat 4s ease-in-out infinite;
+        }
+        
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-5px) rotate(2deg); }
+        }
+        
+        .rotate-slow {
+            animation: rotateSlow 20s linear infinite;
+            transform-origin: center;
+        }
+        
+        @keyframes rotateSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .pulse-scale {
+            animation: pulseScale 3s ease-in-out infinite;
+            transform-origin: center;
+        }
+        
+        @keyframes pulseScale {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+        
+        .float-center {
+            animation: floatCenter 2s ease-in-out infinite;
+            transform-origin: center;
+        }
+        
+        @keyframes floatCenter {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-3px); }
+        }
+        
+        .fade-in-logo {
+            animation: fadeInLogo 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes fadeInLogo {
+            0% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        
+        .twinkle {
+            animation: twinkle 4s ease-in-out infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        .logo-text {
+            animation: logoTextGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes logoTextGlow {
+            0%, 100% { text-shadow: 0 0 10px rgba(102, 126, 234, 0.5); }
+            50% { text-shadow: 0 0 20px rgba(102, 126, 234, 0.8), 0 0 30px rgba(118, 75, 162, 0.6); }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 4s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .slide-in-left {
+            animation: slideInLeft 0.8s ease-out;
+        }
+        
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-100px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .slide-in-right {
+            animation: slideInRight 0.8s ease-out;
+        }
+        
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(100px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .pulse-glow {
+            animation: pulseGlow 2s infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(102, 126, 234, 0.8); }
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            animation: particle 8s linear infinite;
+            box-shadow: 0 0 20px currentColor;
+        }
+        
+        @keyframes particle {
+            0% { transform: translateY(100vh) rotate(0deg) scale(0.5); opacity: 0; }
+            10% { opacity: 1; transform: translateY(90vh) rotate(36deg) scale(1); }
+            50% { transform: translateY(50vh) rotate(180deg) scale(1.2); }
+            90% { opacity: 1; transform: translateY(10vh) rotate(324deg) scale(0.8); }
+            100% { transform: translateY(-100px) rotate(360deg) scale(0); opacity: 0; }
+        }
+        
+        /* New Colorful Animations */
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .animate-gradient-shift {
+            background-size: 400% 400%;
+            animation: gradient-shift 15s ease infinite;
+        }
+        
+        @keyframes pulse-slow {
+            0%, 100% { transform: scale(1); opacity: 0.2; }
+            50% { transform: scale(1.1); opacity: 0.4; }
+        }
+        
+        .animate-pulse-slow {
+            animation: pulse-slow 4s ease-in-out infinite;
+        }
+        
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .animate-spin-slow {
+            animation: spin-slow 8s linear infinite;
+        }
+        
+        @keyframes spin-reverse {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+        }
+        
+        .animate-spin-reverse {
+            animation: spin-reverse 6s linear infinite;
+        }
+        
+        @keyframes bounce-slow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .animate-bounce-slow {
+            animation: bounce-slow 3s ease-in-out infinite;
+        }
+        
+        @keyframes wave-1 {
+            0% { transform: translateX(-100%) skewX(-15deg); }
+            100% { transform: translateX(100vw) skewX(-15deg); }
+        }
+        
+        @keyframes wave-2 {
+            0% { transform: translateX(-100%) skewX(10deg); }
+            100% { transform: translateX(100vw) skewX(10deg); }
+        }
+        
+        @keyframes wave-3 {
+            0% { transform: translateX(-100%) skewX(-20deg); }
+            100% { transform: translateX(100vw) skewX(-20deg); }
+        }
+        
+        @keyframes wave-4 {
+            0% { transform: translateX(-100%) skewX(5deg); }
+            100% { transform: translateX(100vw) skewX(5deg); }
+        }
+        
+        .animate-wave-1 { animation: wave-1 20s linear infinite; }
+        .animate-wave-2 { animation: wave-2 25s linear infinite; }
+        .animate-wave-3 { animation: wave-3 30s linear infinite; }
+        .animate-wave-4 { animation: wave-4 35s linear infinite; }
+        
+        @keyframes twinkle-1 {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+        
+        @keyframes twinkle-2 {
+            0%, 100% { opacity: 0.2; transform: scale(0.8) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.3) rotate(180deg); }
+        }
+        
+        @keyframes twinkle-3 {
+            0%, 100% { opacity: 0.4; transform: scale(1.2); }
+            50% { opacity: 0.8; transform: scale(0.6); }
+        }
+        
+        @keyframes twinkle-4 {
+            0%, 100% { opacity: 0.1; transform: scale(0.5) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.8) rotate(360deg); }
+        }
+        
+        .animate-twinkle-1 { animation: twinkle-1 3s ease-in-out infinite; }
+        .animate-twinkle-2 { animation: twinkle-2 4s ease-in-out infinite; }
+        .animate-twinkle-3 { animation: twinkle-3 2.5s ease-in-out infinite; }
+        .animate-twinkle-4 { animation: twinkle-4 5s ease-in-out infinite; }
+        
+        @keyframes light-ray-1 {
+            0%, 100% { opacity: 0.1; transform: scaleY(1) translateX(0); }
+            50% { opacity: 0.3; transform: scaleY(1.2) translateX(10px); }
+        }
+        
+        @keyframes light-ray-2 {
+            0%, 100% { opacity: 0.15; transform: scaleY(0.8) translateX(0); }
+            50% { opacity: 0.25; transform: scaleY(1.5) translateX(-15px); }
+        }
+        
+        @keyframes light-ray-3 {
+            0%, 100% { opacity: 0.2; transform: scaleY(1.1) translateX(0); }
+            50% { opacity: 0.4; transform: scaleY(0.9) translateX(20px); }
+        }
+        
+        .animate-light-ray-1 { animation: light-ray-1 6s ease-in-out infinite; }
+        .animate-light-ray-2 { animation: light-ray-2 8s ease-in-out infinite; }
+        .animate-light-ray-3 { animation: light-ray-3 7s ease-in-out infinite; }
+        
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: perspective(1000px) rotateX(0deg) translateZ(0);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.6s;
+        }
+        
+        .service-card:hover::before {
+            left: 100%;
+        }
+        
+        .service-card:hover {
+            transform: perspective(1000px) rotateX(5deg) translateY(-15px) translateZ(20px);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.3), 0 0 30px rgba(118, 75, 162, 0.2);
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.2) rotateY(360deg);
+        }
+        
+        .service-icon {
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            display: inline-block;
+        }
+        
+        .chatbot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+        }
+        
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .typing-animation {
+            animation: typing 2s steps(20) infinite;
+        }
+        
+        @keyframes typing {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+    <!-- Ultra Animated Colorful Background -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden">
+        <!-- Animated Gradient Background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 animate-gradient-shift"></div>
+        
+        <!-- Floating Gradient Orbs -->
+        <div class="absolute top-10 left-10 w-96 h-96 bg-gradient-to-r from-pink-500 to-violet-500 rounded-full opacity-20 blur-3xl floating-animation animate-pulse-slow" style="animation-delay: 0s;"></div>
+        <div class="absolute top-1/3 right-20 w-80 h-80 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full opacity-25 blur-3xl floating-animation animate-pulse-slow" style="animation-delay: 2s;"></div>
+        <div class="absolute bottom-20 left-1/4 w-72 h-72 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-full opacity-20 blur-3xl floating-animation animate-pulse-slow" style="animation-delay: 4s;"></div>
+        <div class="absolute top-1/2 left-1/2 w-64 h-64 bg-gradient-to-r from-orange-400 to-red-500 rounded-full opacity-15 blur-3xl floating-animation animate-pulse-slow" style="animation-delay: 6s;"></div>
+        <div class="absolute bottom-1/3 right-1/3 w-88 h-88 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full opacity-20 blur-3xl floating-animation animate-pulse-slow" style="animation-delay: 8s;"></div>
+        
+        <!-- Colorful Moving Particles -->
+        <div class="particle bg-gradient-to-r from-pink-400 to-red-400" style="left: 10%; width: 6px; height: 6px; animation-delay: 0s;"></div>
+        <div class="particle bg-gradient-to-r from-blue-400 to-cyan-400" style="left: 20%; width: 8px; height: 8px; animation-delay: 1s;"></div>
+        <div class="particle bg-gradient-to-r from-green-400 to-emerald-400" style="left: 30%; width: 5px; height: 5px; animation-delay: 2s;"></div>
+        <div class="particle bg-gradient-to-r from-purple-400 to-violet-400" style="left: 40%; width: 7px; height: 7px; animation-delay: 3s;"></div>
+        <div class="particle bg-gradient-to-r from-yellow-400 to-orange-400" style="left: 50%; width: 6px; height: 6px; animation-delay: 4s;"></div>
+        <div class="particle bg-gradient-to-r from-indigo-400 to-blue-400" style="left: 60%; width: 8px; height: 8px; animation-delay: 5s;"></div>
+        <div class="particle bg-gradient-to-r from-teal-400 to-cyan-400" style="left: 70%; width: 5px; height: 5px; animation-delay: 6s;"></div>
+        <div class="particle bg-gradient-to-r from-rose-400 to-pink-400" style="left: 80%; width: 7px; height: 7px; animation-delay: 7s;"></div>
+        <div class="particle bg-gradient-to-r from-lime-400 to-green-400" style="left: 90%; width: 6px; height: 6px; animation-delay: 8s;"></div>
+        
+        <!-- Additional Colorful Particles -->
+        <div class="particle bg-gradient-to-r from-fuchsia-400 to-purple-400" style="left: 15%; width: 4px; height: 4px; animation-delay: 0.5s; animation-duration: 12s;"></div>
+        <div class="particle bg-gradient-to-r from-sky-400 to-blue-400" style="left: 25%; width: 5px; height: 5px; animation-delay: 1.5s; animation-duration: 10s;"></div>
+        <div class="particle bg-gradient-to-r from-emerald-400 to-green-400" style="left: 35%; width: 4px; height: 4px; animation-delay: 2.5s; animation-duration: 14s;"></div>
+        <div class="particle bg-gradient-to-r from-amber-400 to-yellow-400" style="left: 45%; width: 6px; height: 6px; animation-delay: 3.5s; animation-duration: 9s;"></div>
+        <div class="particle bg-gradient-to-r from-violet-400 to-purple-400" style="left: 55%; width: 4px; height: 4px; animation-delay: 4.5s; animation-duration: 11s;"></div>
+        <div class="particle bg-gradient-to-r from-cyan-400 to-teal-400" style="left: 65%; width: 5px; height: 5px; animation-delay: 5.5s; animation-duration: 13s;"></div>
+        <div class="particle bg-gradient-to-r from-red-400 to-rose-400" style="left: 75%; width: 4px; height: 4px; animation-delay: 6.5s; animation-duration: 15s;"></div>
+        <div class="particle bg-gradient-to-r from-blue-400 to-indigo-400" style="left: 85%; width: 6px; height: 6px; animation-delay: 7.5s; animation-duration: 8s;"></div>
+        <div class="particle bg-gradient-to-r from-green-400 to-lime-400" style="left: 95%; width: 4px; height: 4px; animation-delay: 8.5s; animation-duration: 12s;"></div>
+        
+        <!-- Animated Geometric Shapes -->
+        <div class="absolute top-20 left-1/3 w-16 h-16 border-4 border-pink-400 rotate-45 animate-spin-slow opacity-30"></div>
+        <div class="absolute bottom-32 right-1/4 w-12 h-12 border-4 border-cyan-400 rounded-full animate-bounce-slow opacity-40"></div>
+        <div class="absolute top-1/2 left-20 w-20 h-20 border-4 border-yellow-400 rotate-12 animate-pulse opacity-35"></div>
+        <div class="absolute bottom-1/4 left-2/3 w-14 h-14 border-4 border-green-400 rotate-45 animate-spin-reverse opacity-30"></div>
+        
+        <!-- Floating Color Waves -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-r from-transparent via-pink-500 to-transparent animate-wave-1"></div>
+            <div class="absolute top-1/4 left-0 w-full h-24 bg-gradient-to-r from-transparent via-blue-500 to-transparent animate-wave-2"></div>
+            <div class="absolute top-1/2 left-0 w-full h-28 bg-gradient-to-r from-transparent via-green-500 to-transparent animate-wave-3"></div>
+            <div class="absolute top-3/4 left-0 w-full h-20 bg-gradient-to-r from-transparent via-purple-500 to-transparent animate-wave-4"></div>
+        </div>
+        
+        <!-- Twinkling Stars -->
+        <div class="absolute top-16 left-1/4 w-2 h-2 bg-white rounded-full animate-twinkle-1"></div>
+        <div class="absolute top-32 right-1/3 w-3 h-3 bg-yellow-300 rounded-full animate-twinkle-2"></div>
+        <div class="absolute bottom-40 left-1/2 w-2 h-2 bg-pink-300 rounded-full animate-twinkle-3"></div>
+        <div class="absolute top-2/3 right-1/4 w-3 h-3 bg-cyan-300 rounded-full animate-twinkle-4"></div>
+        <div class="absolute bottom-20 left-1/3 w-2 h-2 bg-green-300 rounded-full animate-twinkle-1"></div>
+        <div class="absolute top-1/3 left-3/4 w-3 h-3 bg-purple-300 rounded-full animate-twinkle-2"></div>
+        
+        <!-- Animated Light Rays -->
+        <div class="absolute top-0 left-1/4 w-1 h-full bg-gradient-to-b from-pink-400 via-transparent to-purple-400 opacity-20 animate-light-ray-1"></div>
+        <div class="absolute top-0 right-1/3 w-1 h-full bg-gradient-to-b from-cyan-400 via-transparent to-blue-400 opacity-20 animate-light-ray-2"></div>
+        <div class="absolute top-0 left-2/3 w-1 h-full bg-gradient-to-b from-yellow-400 via-transparent to-orange-400 opacity-20 animate-light-ray-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full glass-effect z-50 fade-in">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="logo-container flex items-center space-x-3">
+                    <div class="relative">
+                        <svg width="40" height="40" viewBox="0 0 50 50" class="logo-animation md:w-12 md:h-12">
+                            <defs>
+                                <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                    <stop offset="50%" style="stop-color:#764ba2;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#f093fb;stop-opacity:1" />
+                                </linearGradient>
+                                <filter id="glow">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                    <feMerge> 
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            <!-- Outer ring -->
+                            <circle cx="25" cy="25" r="22" fill="none" stroke="url(#logoGradient)" stroke-width="2" opacity="0.3" class="rotate-slow"/>
+                            <!-- Inner hexagon -->
+                            <polygon points="25,8 37,16 37,34 25,42 13,34 13,16" fill="url(#logoGradient)" opacity="0.8" filter="url(#glow)" class="pulse-scale"/>
+                            <!-- Center diamond -->
+                            <polygon points="25,15 32,25 25,35 18,25" fill="white" opacity="0.9" class="float-center"/>
+                            <!-- Letter I -->
+                            <rect x="23" y="18" width="4" height="14" fill="url(#logoGradient)" class="fade-in-logo"/>
+                            <!-- Accent dots -->
+                            <circle cx="15" cy="15" r="2" fill="#667eea" opacity="0.6" class="twinkle" style="animation-delay: 0s;"/>
+                            <circle cx="35" cy="15" r="2" fill="#764ba2" opacity="0.6" class="twinkle" style="animation-delay: 1s;"/>
+                            <circle cx="35" cy="35" r="2" fill="#f093fb" opacity="0.6" class="twinkle" style="animation-delay: 2s;"/>
+                            <circle cx="15" cy="35" r="2" fill="#667eea" opacity="0.6" class="twinkle" style="animation-delay: 3s;"/>
+                        </svg>
+                    </div>
+                    <div class="text-lg md:text-2xl font-bold gradient-text logo-text">
+                        INTENT HEDGE FUND
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="nav-desktop hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-blue-400 transition-colors">Home</a>
+                    <a href="#services" class="hover:text-blue-400 transition-colors">Services</a>
+                    <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
+                    <a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center space-x-2">
+                    <button onclick="openLoginModal()" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 text-sm md:px-6 md:text-base rounded-full transition-all pulse-glow">
+                        Login
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="nav-mobile md:hidden text-white p-2">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div id="mobileMenu" class="nav-mobile hidden md:hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="#home" onclick="closeMobileMenu()" class="hover:text-blue-400 transition-colors py-2">Home</a>
+                    <a href="#services" onclick="closeMobileMenu()" class="hover:text-blue-400 transition-colors py-2">Services</a>
+                    <a href="#about" onclick="closeMobileMenu()" class="hover:text-blue-400 transition-colors py-2">About</a>
+                    <a href="#contact" onclick="closeMobileMenu()" class="hover:text-blue-400 transition-colors py-2">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen gradient-bg flex items-center justify-center relative">
+        <div class="container mx-auto px-6 text-center">
+            <div class="slide-in-left">
+                <h1 class="text-6xl md:text-8xl font-bold mb-6 floating-animation">
+                    INTENT HEDGE FUND
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 opacity-90">
+                    Premium Digital Services & Creative Solutions
+                </p>
+                <div class="hero-buttons flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <button onclick="scrollToServices()" class="bg-white text-gray-900 px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 hover:shadow-2xl relative overflow-hidden group">
+                        <span class="relative z-10">Explore Services</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                    </button>
+                    <button onclick="openLoginModal()" class="border-2 border-white px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold hover:bg-white hover:text-gray-900 transition-all transform hover:scale-105 hover:shadow-2xl relative overflow-hidden group">
+                        <span class="relative z-10">Get Started</span>
+                        <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute top-20 left-10 floating-animation" style="animation-delay: 1s;">
+            <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full"></div>
+        </div>
+        <div class="absolute bottom-20 right-10 floating-animation" style="animation-delay: 2s;">
+            <div class="w-16 h-16 bg-blue-400 bg-opacity-30 rounded-full"></div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-5xl font-bold mb-6">Our Premium Services</h2>
+                <p class="text-xl text-gray-300">Comprehensive digital solutions for your business growth</p>
+            </div>
+            
+            <div class="service-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <div class="service-card glass-effect p-8 rounded-2xl text-center">
+                    <div class="text-4xl mb-4 text-blue-400 service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Website Development</h3>
+                    <p class="text-gray-300 mb-6">Custom, responsive websites that drive results and engage your audience.</p>
+                    <button onclick="openServiceRequestModal()" class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-full text-sm font-semibold transition-all transform hover:scale-105">
+                        Request Quote
+                    </button>
+                </div>
+                
+                <div class="service-card glass-effect p-8 rounded-2xl text-center">
+                    <div class="text-4xl mb-4 text-green-400 service-icon">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Copywriting</h3>
+                    <p class="text-gray-300 mb-6">Compelling copy that converts visitors into customers and builds brand loyalty.</p>
+                    <button onclick="openServiceRequestModal()" class="bg-green-600 hover:bg-green-700 px-6 py-2 rounded-full text-sm font-semibold transition-all transform hover:scale-105">
+                        Request Quote
+                    </button>
+                </div>
+                
+                <div class="service-card glass-effect p-8 rounded-2xl text-center">
+                    <div class="text-4xl mb-4 text-purple-400 service-icon">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Content Writing</h3>
+                    <p class="text-gray-300 mb-6">High-quality content that educates, entertains, and engages your target audience.</p>
+                    <button onclick="openServiceRequestModal()" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-full text-sm font-semibold transition-all transform hover:scale-105">
+                        Request Quote
+                    </button>
+                </div>
+                
+                <div class="service-card glass-effect p-8 rounded-2xl text-center">
+                    <div class="text-4xl mb-4 text-yellow-400 service-icon">
+                        <i class="fas fa-script"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Script Writing</h3>
+                    <p class="text-gray-300 mb-6">Professional scripts for videos, presentations, and marketing campaigns.</p>
+                    <button onclick="openServiceRequestModal()" class="bg-yellow-600 hover:bg-yellow-700 px-6 py-2 rounded-full text-sm font-semibold transition-all transform hover:scale-105">
+                        Request Quote
+                    </button>
+                </div>
+                
+                <div class="service-card glass-effect p-8 rounded-2xl text-center">
+                    <div class="text-4xl mb-4 text-red-400 service-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Reel Making</h3>
+                    <p class="text-gray-300 mb-6">Engaging social media reels that boost your online presence and engagement.</p>
+                    <button onclick="openServiceRequestModal()" class="bg-red-600 hover:bg-red-700 px-6 py-2 rounded-full text-sm font-semibold transition-all transform hover:scale-105">
+                        Request Quote
+                    </button>
+                </div>
+                
+                <div class="service-card glass-effect p-8 rounded-2xl text-center">
+                    <div class="text-4xl mb-4 text-indigo-400 service-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Video Editing</h3>
+                    <p class="text-gray-300 mb-6">Professional video editing with cinematic effects and seamless transitions.</p>
+                    <button onclick="openServiceRequestModal()" class="bg-indigo-600 hover:bg-indigo-700 px-6 py-2 rounded-full text-sm font-semibold transition-all transform hover:scale-105">
+                        Request Quote
+                    </button>
+                </div>
+                
+                <div class="service-card glass-effect p-8 rounded-2xl text-center">
+                    <div class="text-4xl mb-4 text-pink-400 service-icon">
+                        <i class="fas fa-presentation"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">PPT Making</h3>
+                    <p class="text-gray-300 mb-6">Stunning presentations that captivate audiences and deliver your message effectively.</p>
+                    <button onclick="openServiceRequestModal()" class="bg-pink-600 hover:bg-pink-700 px-6 py-2 rounded-full text-sm font-semibold transition-all transform hover:scale-105">
+                        Request Quote
+                    </button>
+                </div>
+                
+                <div class="service-card glass-effect p-8 rounded-2xl text-center">
+                    <div class="text-4xl mb-4 text-orange-400 service-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Analysis Reports</h3>
+                    <p class="text-gray-300 mb-6">Comprehensive data analysis and insights to drive informed business decisions.</p>
+                    <button onclick="openServiceRequestModal()" class="bg-orange-600 hover:bg-orange-700 px-6 py-2 rounded-full text-sm font-semibold transition-all transform hover:scale-105">
+                        Request Quote
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="about-grid grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+                <div class="slide-in-left">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6">About Intent Hedge Fund</h2>
+                    <p class="text-lg md:text-xl text-gray-300 mb-6">
+                        We are a premium digital services company dedicated to helping businesses thrive in the digital landscape. Our team of experts combines creativity with technical excellence to deliver outstanding results.
+                    </p>
+                    <p class="text-base md:text-lg text-gray-400 mb-8">
+                        From website development to content creation, we provide comprehensive solutions that drive growth and success for our clients worldwide.
+                    </p>
+                    <div class="stats-grid flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <div class="text-center">
+                            <div class="text-2xl md:text-3xl font-bold text-blue-400">500+</div>
+                            <div class="text-gray-400 text-sm md:text-base">Projects Completed</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl md:text-3xl font-bold text-green-400">98%</div>
+                            <div class="text-gray-400 text-sm md:text-base">Client Satisfaction</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl md:text-3xl font-bold text-purple-400">24/7</div>
+                            <div class="text-gray-400 text-sm md:text-base">Support Available</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-in-right">
+                    <div class="relative">
+                        <div class="w-full h-96 glass-effect rounded-2xl flex items-center justify-center floating-animation">
+                            <div class="text-center">
+                                <i class="fas fa-rocket text-6xl text-blue-400 mb-4"></i>
+                                <h3 class="text-2xl font-semibold">Innovation Driven</h3>
+                                <p class="text-gray-300 mt-2">Cutting-edge solutions for modern businesses</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 gradient-bg">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-5xl font-bold mb-6">Get In Touch</h2>
+                <p class="text-xl opacity-90">Ready to transform your digital presence? Let's discuss your project!</p>
+            </div>
+            
+            <div class="contact-grid grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                <div class="slide-in-left">
+                    <div class="glass-effect p-8 rounded-2xl">
+                        <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Email</div>
+                                    <a href="mailto:ahbabgada905@gmail.com" class="text-blue-300 hover:text-blue-200">ahbabgada905@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Phone</div>
+                                    <a href="tel:+918979956377" class="text-green-300 hover:text-green-200">+91 8979956377</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
+                                    <i class="fab fa-linkedin"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">LinkedIn</div>
+                                    <a href="https://www.linkedin.com/in/mohd-ahbab-589b66294" target="_blank" class="text-blue-300 hover:text-blue-200">Connect with us</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center">
+                                    <i class="fab fa-instagram"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Instagram</div>
+                                    <a href="https://www.instagram.com/ahbabgada1?igsh=cGZ6cTZud2xraTkw" target="_blank" class="text-pink-300 hover:text-pink-200">Follow us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slide-in-right">
+                    <div class="glass-effect p-8 rounded-2xl">
+                        <h3 class="text-2xl font-semibold mb-6">Send us a Message</h3>
+                        <form class="space-y-6" onsubmit="handleContactForm(event)">
+                            <div>
+                                <input type="text" placeholder="Your Name" required class="w-full p-4 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors">
+                            </div>
+                            <div>
+                                <input type="email" placeholder="Your Email" required class="w-full p-4 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors">
+                            </div>
+                            <div>
+                                <select class="w-full p-4 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors text-white">
+                                    <option value="" class="bg-gray-800 text-white">Select Service</option>
+                                    <option value="website" class="bg-gray-800 text-white">Website Development</option>
+                                    <option value="copywriting" class="bg-gray-800 text-white">Copywriting</option>
+                                    <option value="content" class="bg-gray-800 text-white">Content Writing</option>
+                                    <option value="script" class="bg-gray-800 text-white">Script Writing</option>
+                                    <option value="reel" class="bg-gray-800 text-white">Reel Making</option>
+                                    <option value="video" class="bg-gray-800 text-white">Video Editing</option>
+                                    <option value="ppt" class="bg-gray-800 text-white">PPT Making</option>
+                                    <option value="analysis" class="bg-gray-800 text-white">Analysis Reports</option>
+                                </select>
+                            </div>
+                            <div>
+                                <textarea placeholder="Your Message" rows="4" required class="w-full p-4 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors resize-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 pulse-glow">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex items-center justify-center space-x-3 mb-4">
+                <div class="relative">
+                    <svg width="40" height="40" viewBox="0 0 50 50" class="logo-animation">
+                        <defs>
+                            <linearGradient id="footerLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#764ba2;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#f093fb;stop-opacity:1" />
+                            </linearGradient>
+                            <filter id="footerGlow">
+                                <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                                <feMerge> 
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        <circle cx="25" cy="25" r="22" fill="none" stroke="url(#footerLogoGradient)" stroke-width="2" opacity="0.3" class="rotate-slow"/>
+                        <polygon points="25,8 37,16 37,34 25,42 13,34 13,16" fill="url(#footerLogoGradient)" opacity="0.8" filter="url(#footerGlow)" class="pulse-scale"/>
+                        <polygon points="25,15 32,25 25,35 18,25" fill="white" opacity="0.9" class="float-center"/>
+                        <rect x="23" y="18" width="4" height="14" fill="url(#footerLogoGradient)" class="fade-in-logo"/>
+                        <circle cx="15" cy="15" r="2" fill="#667eea" opacity="0.6" class="twinkle" style="animation-delay: 0s;"/>
+                        <circle cx="35" cy="15" r="2" fill="#764ba2" opacity="0.6" class="twinkle" style="animation-delay: 1s;"/>
+                        <circle cx="35" cy="35" r="2" fill="#f093fb" opacity="0.6" class="twinkle" style="animation-delay: 2s;"/>
+                        <circle cx="15" cy="35" r="2" fill="#667eea" opacity="0.6" class="twinkle" style="animation-delay: 3s;"/>
+                    </svg>
+                </div>
+                <div class="text-2xl font-bold gradient-text logo-text">
+                    INTENT HEDGE FUND
+                </div>
+            </div>
+            <p class="text-gray-400 mb-6">Premium Digital Services & Creative Solutions</p>
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="https://www.linkedin.com/in/mohd-ahbab-589b66294" target="_blank" class="text-blue-400 hover:text-blue-300 text-2xl">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com/ahbabgada1?igsh=cGZ6cTZud2xraTkw" target="_blank" class="text-pink-400 hover:text-pink-300 text-2xl">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:ahbabgada905@gmail.com" class="text-red-400 hover:text-red-300 text-2xl">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <p class="text-gray-500">&copy; 2024 Intent Hedge Fund. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="glass-effect p-8 rounded-2xl max-w-md w-full mx-4 fade-in">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold">Login to Your Account</h2>
+                <button onclick="closeLoginModal()" class="text-gray-400 hover:text-white text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <form onsubmit="handleLogin(event)" class="space-y-6">
+                <div>
+                    <input type="email" placeholder="Email Address" required class="w-full p-4 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors">
+                </div>
+                <div>
+                    <input type="password" placeholder="Password" required class="w-full p-4 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors">
+                </div>
+                <div class="flex items-center justify-between">
+                    <label class="flex items-center">
+                        <input type="checkbox" class="mr-2">
+                        <span class="text-sm">Remember me</span>
+                    </label>
+                    <a href="#" class="text-blue-400 hover:text-blue-300 text-sm">Forgot Password?</a>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 py-4 rounded-lg font-semibold transition-all transform hover:scale-105">
+                    Sign In
+                </button>
+                <div class="text-center">
+                    <span class="text-gray-400">Don't have an account? </span>
+                    <a href="#" onclick="openSignupModal()" class="text-blue-400 hover:text-blue-300">Sign up</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="glass-effect p-8 rounded-2xl max-w-md w-full mx-4 fade-in">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold">Create Your Account</h2>
+                <button onclick="closeSignupModal()" class="text-gray-400 hover:text-white text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <form onsubmit="handleSignup(event)" class="space-y-6">
+                <div>
+                    <input type="text" id="signupName" placeholder="Full Name" required class="w-full p-4 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors">
+                </div>
+                <div>
+                    <input type="email" id="signupEmail" placeholder="Email Address" required class="w-full p-4 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors">
+                </div>
+                <div>
+                    <input type="tel" id="signupPhone" placeholder="Phone Number" required class="w-full p-4 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors">
+                </div>
+                <div>
+                    <select id="signupService" class="w-full p-4 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors text-white">
+                        <option value="" class="bg-gray-800 text-white">Service of Interest</option>
+                        <option value="website" class="bg-gray-800 text-white">Website Development</option>
+                        <option value="copywriting" class="bg-gray-800 text-white">Copywriting</option>
+                        <option value="content" class="bg-gray-800 text-white">Content Writing</option>
+                        <option value="script" class="bg-gray-800 text-white">Script Writing</option>
+                        <option value="reel" class="bg-gray-800 text-white">Reel Making</option>
+                        <option value="video" class="bg-gray-800 text-white">Video Editing</option>
+                        <option value="ppt" class="bg-gray-800 text-white">PPT Making</option>
+                        <option value="analysis" class="bg-gray-800 text-white">Analysis Reports</option>
+                    </select>
+                </div>
+                <div>
+                    <input type="password" placeholder="Password" required class="w-full p-4 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors">
+                </div>
+                <div>
+                    <input type="password" placeholder="Confirm Password" required class="w-full p-4 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors">
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" id="agreeTerms" required class="mr-2">
+                    <label for="agreeTerms" class="text-sm">I agree to the Terms of Service and Privacy Policy</label>
+                </div>
+                <button type="submit" class="w-full bg-green-600 hover:bg-green-700 py-4 rounded-lg font-semibold transition-all transform hover:scale-105">
+                    Create Account
+                </button>
+                <div class="text-center">
+                    <span class="text-gray-400">Already have an account? </span>
+                    <a href="#" onclick="switchToLogin()" class="text-blue-400 hover:text-blue-300">Sign in</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Service Request Modal -->
+    <div id="serviceRequestModal" class="modal">
+        <div class="glass-effect p-8 rounded-2xl max-w-2xl w-full mx-4 fade-in max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold">Request a Service</h2>
+                <button onclick="closeServiceRequestModal()" class="text-gray-400 hover:text-white text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <form onsubmit="handleServiceRequest(event)" class="space-y-6">
+                <!-- Personal Information -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Full Name *</label>
+                        <input type="text" id="serviceName" placeholder="Your full name" required class="w-full p-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Email Address *</label>
+                        <input type="email" id="serviceEmail" placeholder="your@email.com" required class="w-full p-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors">
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Phone Number *</label>
+                        <input type="tel" id="servicePhone" placeholder="+1 (555) 123-4567" required class="w-full p-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Company/Organization</label>
+                        <input type="text" id="serviceCompany" placeholder="Your company name" class="w-full p-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors">
+                    </div>
+                </div>
+
+                <!-- Service Details -->
+                <div>
+                    <label class="block text-sm font-medium mb-2">Service Type *</label>
+                    <select id="serviceType" required class="w-full p-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors text-white" onchange="updateServiceDetails()">
+                        <option value="" class="bg-gray-800 text-white">Select a service</option>
+                        <option value="website" class="bg-gray-800 text-white">Website Development</option>
+                        <option value="copywriting" class="bg-gray-800 text-white">Copywriting</option>
+                        <option value="content" class="bg-gray-800 text-white">Content Writing</option>
+                        <option value="script" class="bg-gray-800 text-white">Script Writing</option>
+                        <option value="reel" class="bg-gray-800 text-white">Reel Making</option>
+                        <option value="video" class="bg-gray-800 text-white">Video Editing</option>
+                        <option value="ppt" class="bg-gray-800 text-white">PPT Making</option>
+                        <option value="analysis" class="bg-gray-800 text-white">Analysis Reports</option>
+                    </select>
+                </div>
+
+                <!-- Dynamic Service Specific Fields -->
+                <div id="serviceSpecificFields"></div>
+
+                <!-- Project Timeline -->
+                <div>
+                    <label class="block text-sm font-medium mb-2">Project Timeline *</label>
+                    <select id="serviceDuration" required class="w-full p-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors text-white">
+                        <option value="" class="bg-gray-800 text-white">Select timeline</option>
+                        <option value="rush" class="bg-gray-800 text-white">Rush (1-3 days) - +50% fee</option>
+                        <option value="standard" class="bg-gray-800 text-white">Standard (1 week)</option>
+                        <option value="extended" class="bg-gray-800 text-white">Extended (2-3 weeks)</option>
+                        <option value="flexible" class="bg-gray-800 text-white">Flexible timeline</option>
+                    </select>
+                </div>
+
+                <!-- Budget Range -->
+                <div>
+                    <label class="block text-sm font-medium mb-2">Budget Range *</label>
+                    <select id="serviceBudget" required class="w-full p-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors text-white">
+                        <option value="" class="bg-gray-800 text-white">Select budget range</option>
+                        <option value="under-500" class="bg-gray-800 text-white">Under $500</option>
+                        <option value="500-1000" class="bg-gray-800 text-white">$500 - $1,000</option>
+                        <option value="1000-2500" class="bg-gray-800 text-white">$1,000 - $2,500</option>
+                        <option value="2500-5000" class="bg-gray-800 text-white">$2,500 - $5,000</option>
+                        <option value="5000-plus" class="bg-gray-800 text-white">$5,000+</option>
+                        <option value="discuss" class="bg-gray-800 text-white">Let's discuss</option>
+                    </select>
+                </div>
+
+                <!-- Project Description -->
+                <div>
+                    <label class="block text-sm font-medium mb-2">Project Description *</label>
+                    <textarea id="serviceDescription" placeholder="Please describe your project in detail. Include your goals, target audience, specific requirements, and any other relevant information..." rows="4" required class="w-full p-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors resize-none"></textarea>
+                </div>
+
+                <!-- Additional Requirements -->
+                <div>
+                    <label class="block text-sm font-medium mb-2">Additional Requirements</label>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" id="revisions" class="rounded">
+                            <span class="text-sm">Multiple revisions included</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" id="sourceFiles" class="rounded">
+                            <span class="text-sm">Source files required</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" id="consultation" class="rounded">
+                            <span class="text-sm">Initial consultation call</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" id="maintenance" class="rounded">
+                            <span class="text-sm">Ongoing maintenance/support</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- File Upload -->
+                <div>
+                    <label class="block text-sm font-medium mb-2">Reference Files (Optional)</label>
+                    <div class="border-2 border-dashed border-white border-opacity-20 rounded-lg p-6 text-center">
+                        <i class="fas fa-cloud-upload-alt text-3xl text-gray-400 mb-2"></i>
+                        <p class="text-sm text-gray-300">Upload any reference files, logos, or inspiration materials</p>
+                        <input type="file" id="serviceFiles" multiple accept=".jpg,.jpeg,.png,.pdf,.doc,.docx" class="hidden">
+                        <button type="button" onclick="document.getElementById('serviceFiles').click()" class="mt-2 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-sm transition-colors">
+                            Choose Files
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Preferred Communication -->
+                <div>
+                    <label class="block text-sm font-medium mb-2">Preferred Communication Method</label>
+                    <div class="flex flex-wrap gap-4">
+                        <label class="flex items-center space-x-2">
+                            <input type="radio" name="communication" value="email" checked>
+                            <span class="text-sm">Email</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="radio" name="communication" value="phone">
+                            <span class="text-sm">Phone Call</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="radio" name="communication" value="video">
+                            <span class="text-sm">Video Call</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="radio" name="communication" value="whatsapp">
+                            <span class="text-sm">WhatsApp</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                    <input type="checkbox" id="agreeServiceTerms" required class="rounded">
+                    <label for="agreeServiceTerms" class="text-sm">I agree to the Terms of Service and understand that a detailed quote will be provided based on my requirements *</label>
+                </div>
+
+                <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 pulse-glow">
+                    Submit Service Request
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Lead Notification -->
+    <div id="leadNotification" class="fixed top-4 right-4 bg-green-600 text-white p-4 rounded-lg shadow-lg z-50 hidden">
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-check-circle"></i>
+            <span>Service request submitted successfully!</span>
+        </div>
+    </div>
+
+    <!-- Chatbot -->
+    <div class="chatbot">
+        <div id="chatbotButton" onclick="toggleChatbot()" class="w-16 h-16 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center cursor-pointer pulse-glow">
+            <i class="fas fa-comments text-2xl"></i>
+        </div>
+        
+        <div id="chatbotWindow" class="hidden absolute bottom-20 right-0 w-80 h-96 glass-effect rounded-2xl overflow-hidden">
+            <div class="bg-blue-600 p-4 flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                        <i class="fas fa-robot text-blue-600"></i>
+                    </div>
+                    <span class="font-semibold">Intent Assistant</span>
+                </div>
+                <button onclick="toggleChatbot()" class="text-white hover:text-gray-200">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div id="chatMessages" class="p-4 h-64 overflow-y-auto space-y-3">
+                <div class="bg-blue-100 text-gray-800 p-3 rounded-lg max-w-xs">
+                    <p>Hello! I'm your Intent Assistant. How can I help you today?</p>
+                </div>
+            </div>
+            
+            <div class="p-4 border-t border-white border-opacity-20">
+                <div class="flex space-x-2 mb-2">
+                    <input id="chatInput" type="text" placeholder="Type or speak your message..." class="flex-1 p-2 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors" onkeypress="handleChatKeypress(event)">
+                    <button id="voiceButton" onclick="toggleVoiceRecording()" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg transition-colors">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <button onclick="sendChatMessage()" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition-colors">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="flex justify-between items-center text-xs text-gray-300">
+                    <span id="voiceStatus">Click mic to speak</span>
+                    <button onclick="toggleVoiceResponse()" id="voiceResponseToggle" class="text-blue-400 hover:text-blue-300">
+                        <i class="fas fa-volume-up"></i> Voice Response: ON
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling
+        function scrollToServices() {
+            document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Modal Functions
+        function openLoginModal() {
+            document.getElementById('loginModal').classList.add('active');
+        }
+
+        function closeLoginModal() {
+            document.getElementById('loginModal').classList.remove('active');
+        }
+
+        function openSignupModal() {
+            closeLoginModal();
+            document.getElementById('signupModal').classList.add('active');
+        }
+
+        function closeSignupModal() {
+            document.getElementById('signupModal').classList.remove('active');
+        }
+
+        function switchToLogin() {
+            closeSignupModal();
+            openLoginModal();
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            alert('Demo Login - This is a sample login form. In a real application, this would authenticate with a secure backend.');
+            closeLoginModal();
+        }
+
+        function handleSignup(event) {
+            event.preventDefault();
+            
+            // Capture lead data
+            const leadData = {
+                name: document.getElementById('signupName').value,
+                email: document.getElementById('signupEmail').value,
+                phone: document.getElementById('signupPhone').value,
+                service: document.getElementById('signupService').value,
+                timestamp: new Date().toISOString(),
+                source: 'Website Signup'
+            };
+            
+            // Store lead data (in real app, this would go to your backend/CRM)
+            console.log('New Lead Captured:', leadData);
+            
+            // Show success notification
+            showLeadNotification();
+            
+            // Send lead data via email (demo - in real app use proper backend)
+            sendLeadNotification(leadData);
+            
+            // Close modal and show success
+            closeSignupModal();
+            alert('Account created successfully! Welcome to Intent Hedge Fund. Our team will contact you soon!');
+        }
+
+        function sendLeadNotification(leadData) {
+            // In a real application, this would send data to your backend
+            // For demo purposes, we'll create a mailto link with the lead info
+            const subject = encodeURIComponent('New Lead from Website - ' + leadData.name);
+            const body = encodeURIComponent(`
+New Lead Details:
+Name: ${leadData.name}
+Email: ${leadData.email}
+Phone: ${leadData.phone}
+Service Interest: ${leadData.service}
+Timestamp: ${leadData.timestamp}
+Source: ${leadData.source}
+
+Please follow up with this potential client.
+            `);
+            
+            // Create hidden mailto link and trigger it
+            const mailtoLink = `mailto:ahbabgada905@gmail.com?subject=${subject}&body=${body}`;
+            const tempLink = document.createElement('a');
+            tempLink.href = mailtoLink;
+            tempLink.style.display = 'none';
+            document.body.appendChild(tempLink);
+            tempLink.click();
+            document.body.removeChild(tempLink);
+        }
+
+        function showLeadNotification() {
+            const notification = document.getElementById('leadNotification');
+            notification.classList.remove('hidden');
+            setTimeout(() => {
+                notification.classList.add('hidden');
+            }, 5000);
+        }
+
+        // Contact Form Handler
+        function handleContactForm(event) {
+            event.preventDefault();
+            alert('Thank you for your message! This is a demo form. In a real application, this would send your message to our team.');
+        }
+
+        // Service Request Modal Functions
+        function openServiceRequestModal() {
+            document.getElementById('serviceRequestModal').classList.add('active');
+        }
+
+        function closeServiceRequestModal() {
+            document.getElementById('serviceRequestModal').classList.remove('active');
+        }
+
+        function updateServiceDetails() {
+            const serviceType = document.getElementById('serviceType').value;
+            const specificFields = document.getElementById('serviceSpecificFields');
+            
+            let fieldsHTML = '';
+            
+            switch(serviceType) {
+                case 'website':
+                    fieldsHTML = `
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Website Type</label>
+                                <select class="w-full p-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors">
+                                    <option value="">Select type</option>
+                                    <option value="business">Business Website</option>
+                                    <option value="ecommerce">E-commerce Store</option>
+                                    <option value="portfolio">Portfolio Site</option>
+                                    <option value="blog">Blog/News Site</option>
+                                    <option value="landing">Landing Page</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Number of Pages</label>
+                                <select class="w-full p-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors">
+                                    <option value="">Select pages</option>
+                                    <option value="1-5">1-5 pages</option>
+                                    <option value="6-10">6-10 pages</option>
+                                    <option value="11-20">11-20 pages</option>
+                                    <option value="20+">20+ pages</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Required Features</label>
+                            <div class="grid grid-cols-2 gap-2">
+                                <label class="flex items-center space-x-2">
+                                    <input type="checkbox" class="rounded">
+                                    <span class="text-sm">Contact Forms</span>
+                                </label>
+                                <label class="flex items-center space-x-2">
+                                    <input type="checkbox" class="rounded">
+                                    <span class="text-sm">Online Store</span>
+                                </label>
+                                <label class="flex items-center space-x-2">
+                                    <input type="checkbox" class="rounded">
+                                    <span class="text-sm">Blog Section</span>
+                                </label>
+                                <label class="flex items-center space-x-2">
+                                    <input type="checkbox" class="rounded">
+                                    <span class="text-sm">User Accounts</span>
+                                </label>
+                                <label class="flex items-center space-x-2">
+                                    <input type="checkbox" class="rounded">
+                                    <span class="text-sm">Payment Gateway</span>
+                                </label>
+                                <label class="flex items-center space-x-2">
+                                    <input type="checkbox" class="rounded">
+                                    <span class="text-sm">SEO Optimization</span>
+                                </label>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'copywriting':
+                    fieldsHTML = `
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Copy Type</label>
+                                <select class="w-full p-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors">
+                                    <option value="">Select type</option>
+                                    <option value="sales">Sales Pages</option>
+                                    <option value="email">Email Campaigns</option>
+                                    <option value="ads">Ad Copy</option>
+                                    <option value="product">Product Descriptions</option>
+                                    <option value="web">Website Copy</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Word Count</label>
+                                <select class="w-full p-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors">
+                                    <option value="">Select range</option>
+                                    <option value="under-500">Under 500 words</option>
+                                    <option value="500-1000">500-1,000 words</option>
+                                    <option value="1000-2500">1,000-2,500 words</option>
+                                    <option value="2500+">2,500+ words</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Target Audience</label>
+                            <input type="text" placeholder="Describe your target audience..." class="w-full p-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors">
+                        </div>
+                    `;
+                    break;
+                case 'video':
+                    fieldsHTML = `
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Video Type</label>
+                                <select class="w-full p-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors">
+                                    <option value="">Select type</option>
+                                    <option value="promotional">Promotional Video</option>
+                                    <option value="social">Social Media Content</option>
+                                    <option value="tutorial">Tutorial/Educational</option>
+                                    <option value="testimonial">Testimonial</option>
+                                    <option value="event">Event Coverage</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Video Length</label>
+                                <select class="w-full p-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors">
+                                    <option value="">Select length</option>
+                                    <option value="under-30">Under 30 seconds</option>
+                                    <option value="30-60">30-60 seconds</option>
+                                    <option value="1-3">1-3 minutes</option>
+                                    <option value="3-10">3-10 minutes</option>
+                                    <option value="10+">10+ minutes</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Special Effects Needed</label>
+                            <div class="grid grid-cols-2 gap-2">
+                                <label class="flex items-center space-x-2">
+                                    <input type="checkbox" class="rounded">
+                                    <span class="text-sm">Color Correction</span>
+                                </label>
+                                <label class="flex items-center space-x-2">
+                                    <input type="checkbox" class="rounded">
+                                    <span class="text-sm">Motion Graphics</span>
+                                </label>
+                                <label class="flex items-center space-x-2">
+                                    <input type="checkbox" class="rounded">
+                                    <span class="text-sm">Text Overlays</span>
+                                </label>
+                                <label class="flex items-center space-x-2">
+                                    <input type="checkbox" class="rounded">
+                                    <span class="text-sm">Background Music</span>
+                                </label>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'ppt':
+                    fieldsHTML = `
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Presentation Type</label>
+                                <select class="w-full p-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors">
+                                    <option value="">Select type</option>
+                                    <option value="business">Business Pitch</option>
+                                    <option value="training">Training Material</option>
+                                    <option value="marketing">Marketing Presentation</option>
+                                    <option value="educational">Educational Content</option>
+                                    <option value="report">Report/Analysis</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Number of Slides</label>
+                                <select class="w-full p-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors">
+                                    <option value="">Select range</option>
+                                    <option value="1-10">1-10 slides</option>
+                                    <option value="11-25">11-25 slides</option>
+                                    <option value="26-50">26-50 slides</option>
+                                    <option value="50+">50+ slides</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Design Style Preference</label>
+                            <div class="grid grid-cols-2 gap-2">
+                                <label class="flex items-center space-x-2">
+                                    <input type="radio" name="pptStyle" value="modern">
+                                    <span class="text-sm">Modern & Minimal</span>
+                                </label>
+                                <label class="flex items-center space-x-2">
+                                    <input type="radio" name="pptStyle" value="corporate">
+                                    <span class="text-sm">Corporate</span>
+                                </label>
+                                <label class="flex items-center space-x-2">
+                                    <input type="radio" name="pptStyle" value="creative">
+                                    <span class="text-sm">Creative & Bold</span>
+                                </label>
+                                <label class="flex items-center space-x-2">
+                                    <input type="radio" name="pptStyle" value="academic">
+                                    <span class="text-sm">Academic</span>
+                                </label>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'analysis':
+                    fieldsHTML = `
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Analysis Type</label>
+                                <select class="w-full p-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors">
+                                    <option value="">Select type</option>
+                                    <option value="market">Market Analysis</option>
+                                    <option value="financial">Financial Analysis</option>
+                                    <option value="competitor">Competitor Analysis</option>
+                                    <option value="data">Data Analysis</option>
+                                    <option value="performance">Performance Analysis</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Data Source</label>
+                                <select class="w-full p-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg focus:outline-none focus:border-blue-400 transition-colors">
+                                    <option value="">Select source</option>
+                                    <option value="provided">I'll provide data</option>
+                                    <option value="research">Research required</option>
+                                    <option value="mixed">Mixed sources</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Report Format</label>
+                            <div class="grid grid-cols-2 gap-2">
+                                <label class="flex items-center space-x-2">
+                                    <input type="checkbox" class="rounded">
+                                    <span class="text-sm">Executive Summary</span>
+                                </label>
+                                <label class="flex items-center space-x-2">
+                                    <input type="checkbox" class="rounded">
+                                    <span class="text-sm">Charts & Graphs</span>
+                                </label>
+                                <label class="flex items-center space-x-2">
+                                    <input type="checkbox" class="rounded">
+                                    <span class="text-sm">Recommendations</span>
+                                </label>
+                                <label class="flex items-center space-x-2">
+                                    <input type="checkbox" class="rounded">
+                                    <span class="text-sm">Action Plan</span>
+                                </label>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                default:
+                    fieldsHTML = '';
+            }
+            
+            specificFields.innerHTML = fieldsHTML;
+        }
+
+        function handleServiceRequest(event) {
+            event.preventDefault();
+            
+            // Collect all form data
+            const serviceData = {
+                // Personal Info
+                name: document.getElementById('serviceName').value,
+                email: document.getElementById('serviceEmail').value,
+                phone: document.getElementById('servicePhone').value,
+                company: document.getElementById('serviceCompany').value,
+                
+                // Service Details
+                serviceType: document.getElementById('serviceType').value,
+                duration: document.getElementById('serviceDuration').value,
+                budget: document.getElementById('serviceBudget').value,
+                description: document.getElementById('serviceDescription').value,
+                
+                // Additional Requirements
+                revisions: document.getElementById('revisions').checked,
+                sourceFiles: document.getElementById('sourceFiles').checked,
+                consultation: document.getElementById('consultation').checked,
+                maintenance: document.getElementById('maintenance').checked,
+                
+                // Communication
+                communication: document.querySelector('input[name="communication"]:checked').value,
+                
+                // Metadata
+                timestamp: new Date().toISOString(),
+                source: 'Service Request Form'
+            };
+            
+            // Store service request data
+            console.log('Service Request Submitted:', serviceData);
+            
+            // Send service request notification
+            sendServiceRequestNotification(serviceData);
+            
+            // Show success notification
+            showServiceRequestNotification();
+            
+            // Close modal and show success
+            closeServiceRequestModal();
+            alert('Service request submitted successfully! Our team will review your requirements and contact you within 24 hours with a detailed quote.');
+        }
+
+        function sendServiceRequestNotification(serviceData) {
+            const subject = encodeURIComponent(`New Service Request - ${serviceData.serviceType} - ${serviceData.name}`);
+            const body = encodeURIComponent(`
+NEW SERVICE REQUEST DETAILS:
+
+PERSONAL INFORMATION:
+Name: ${serviceData.name}
+Email: ${serviceData.email}
+Phone: ${serviceData.phone}
+Company: ${serviceData.company || 'Not provided'}
+
+SERVICE DETAILS:
+Service Type: ${serviceData.serviceType}
+Timeline: ${serviceData.duration}
+Budget Range: ${serviceData.budget}
+Description: ${serviceData.description}
+
+ADDITIONAL REQUIREMENTS:
+- Multiple Revisions: ${serviceData.revisions ? 'Yes' : 'No'}
+- Source Files: ${serviceData.sourceFiles ? 'Yes' : 'No'}
+- Initial Consultation: ${serviceData.consultation ? 'Yes' : 'No'}
+- Ongoing Maintenance: ${serviceData.maintenance ? 'Yes' : 'No'}
+
+PREFERRED COMMUNICATION: ${serviceData.communication}
+
+SUBMITTED: ${serviceData.timestamp}
+
+Please prepare a detailed quote and contact the client within 24 hours.
+            `);
+            
+            // Create hidden mailto link and trigger it
+            const mailtoLink = `mailto:ahbabgada905@gmail.com?subject=${subject}&body=${body}`;
+            const tempLink = document.createElement('a');
+            tempLink.href = mailtoLink;
+            tempLink.style.display = 'none';
+            document.body.appendChild(tempLink);
+            tempLink.click();
+            document.body.removeChild(tempLink);
+        }
+
+        function showServiceRequestNotification() {
+            const notification = document.getElementById('leadNotification');
+            notification.classList.remove('hidden');
+            setTimeout(() => {
+                notification.classList.add('hidden');
+            }, 5000);
+        }
+
+        // Voice Chat Variables
+        let recognition;
+        let isRecording = false;
+        let voiceResponseEnabled = true;
+
+        // Initialize Speech Recognition
+        function initializeSpeechRecognition() {
+            if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+                recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+                recognition.continuous = false;
+                recognition.interimResults = true;
+                recognition.lang = 'en-US';
+
+                recognition.onstart = function() {
+                    isRecording = true;
+                    document.getElementById('voiceStatus').textContent = 'Listening... Speak now!';
+                    document.getElementById('voiceButton').innerHTML = '<i class="fas fa-stop animate-pulse"></i>';
+                    document.getElementById('voiceButton').classList.remove('bg-green-600', 'hover:bg-green-700');
+                    document.getElementById('voiceButton').classList.add('bg-red-600', 'hover:bg-red-700');
+                    
+                    // Add visual feedback
+                    document.getElementById('chatInput').placeholder = 'Listening... speak your question';
+                    document.getElementById('chatInput').classList.add('border-red-400');
+                };
+
+                recognition.onresult = function(event) {
+                    let transcript = '';
+                    for (let i = event.resultIndex; i < event.results.length; i++) {
+                        if (event.results[i].isFinal) {
+                            transcript += event.results[i][0].transcript;
+                        } else {
+                            // Show interim results in real-time
+                            document.getElementById('chatInput').value = event.results[i][0].transcript;
+                        }
+                    }
+                    
+                    if (transcript) {
+                        document.getElementById('chatInput').value = transcript;
+                        // Auto-send the message after voice input
+                        setTimeout(() => {
+                            sendChatMessage();
+                        }, 500);
+                    }
+                };
+
+                recognition.onend = function() {
+                    isRecording = false;
+                    document.getElementById('voiceStatus').textContent = 'Click mic to speak';
+                    document.getElementById('voiceButton').innerHTML = '<i class="fas fa-microphone"></i>';
+                    document.getElementById('voiceButton').classList.remove('bg-red-600', 'hover:bg-red-700');
+                    document.getElementById('voiceButton').classList.add('bg-green-600', 'hover:bg-green-700');
+                    
+                    // Reset visual feedback
+                    document.getElementById('chatInput').placeholder = 'Type or speak your message...';
+                    document.getElementById('chatInput').classList.remove('border-red-400');
+                };
+
+                recognition.onerror = function(event) {
+                    console.error('Speech recognition error:', event.error);
+                    let errorMessage = 'Voice error - try again';
+                    
+                    switch(event.error) {
+                        case 'no-speech':
+                            errorMessage = 'No speech detected - try again';
+                            break;
+                        case 'audio-capture':
+                            errorMessage = 'Microphone not found';
+                            break;
+                        case 'not-allowed':
+                            errorMessage = 'Microphone access denied';
+                            break;
+                        case 'network':
+                            errorMessage = 'Network error - check connection';
+                            break;
+                        default:
+                            errorMessage = 'Voice error - try again';
+                    }
+                    
+                    document.getElementById('voiceStatus').textContent = errorMessage;
+                    isRecording = false;
+                    document.getElementById('voiceButton').innerHTML = '<i class="fas fa-microphone"></i>';
+                    document.getElementById('voiceButton').classList.remove('bg-red-600', 'hover:bg-red-700');
+                    document.getElementById('voiceButton').classList.add('bg-green-600', 'hover:bg-green-700');
+                    document.getElementById('chatInput').placeholder = 'Type or speak your message...';
+                    document.getElementById('chatInput').classList.remove('border-red-400');
+                    
+                    // Show error message in chat
+                    addChatMessage(`Voice input error: ${errorMessage}. Please try typing your question or check your microphone permissions.`, 'bot');
+                };
+            } else {
+                document.getElementById('voiceStatus').textContent = 'Voice not supported in this browser';
+                document.getElementById('voiceButton').style.display = 'none';
+                addChatMessage('Voice input is not supported in your browser. Please type your questions instead.', 'bot');
+            }
+        }
+
+        function toggleVoiceRecording() {
+            if (!recognition) {
+                addChatMessage('Voice recognition is not supported in your browser. Please type your question instead.', 'bot');
+                return;
+            }
+
+            if (isRecording) {
+                recognition.stop();
+                document.getElementById('voiceStatus').textContent = 'Voice input stopped';
+            } else {
+                // Request microphone permission and start recording
+                navigator.mediaDevices.getUserMedia({ audio: true })
+                    .then(function(stream) {
+                        // Permission granted, start recognition
+                        recognition.start();
+                        // Stop the stream as we don't need it anymore
+                        stream.getTracks().forEach(track => track.stop());
+                    })
+                    .catch(function(err) {
+                        console.error('Microphone permission denied:', err);
+                        document.getElementById('voiceStatus').textContent = 'Microphone access denied';
+                        addChatMessage('Please allow microphone access to use voice input, or type your question instead.', 'bot');
+                    });
+            }
+        }
+
+        function toggleVoiceResponse() {
+            voiceResponseEnabled = !voiceResponseEnabled;
+            const toggle = document.getElementById('voiceResponseToggle');
+            if (voiceResponseEnabled) {
+                toggle.innerHTML = '<i class="fas fa-volume-up"></i> Voice Response: ON';
+                toggle.classList.remove('text-gray-500');
+                toggle.classList.add('text-blue-400');
+            } else {
+                toggle.innerHTML = '<i class="fas fa-volume-mute"></i> Voice Response: OFF';
+                toggle.classList.remove('text-blue-400');
+                toggle.classList.add('text-gray-500');
+            }
+        }
+
+        function speakResponse(text) {
+            if (!voiceResponseEnabled || !('speechSynthesis' in window)) return;
+
+            // Cancel any ongoing speech
+            speechSynthesis.cancel();
+
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.rate = 0.9;
+            utterance.pitch = 1;
+            utterance.volume = 0.8;
+
+            // Try to use a female voice if available
+            const voices = speechSynthesis.getVoices();
+            const femaleVoice = voices.find(voice => 
+                voice.name.toLowerCase().includes('female') || 
+                voice.name.toLowerCase().includes('samantha') ||
+                voice.name.toLowerCase().includes('karen') ||
+                voice.name.toLowerCase().includes('susan')
+            );
+            
+            if (femaleVoice) {
+                utterance.voice = femaleVoice;
+            }
+
+            speechSynthesis.speak(utterance);
+        }
+
+        // Intelligent Chatbot Functions
+        function toggleChatbot() {
+            const chatWindow = document.getElementById('chatbotWindow');
+            chatWindow.classList.toggle('hidden');
+            
+            // Initialize speech recognition when chatbot is first opened
+            if (!recognition && !chatWindow.classList.contains('hidden')) {
+                initializeSpeechRecognition();
+            }
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim().toLowerCase();
+            
+            if (message) {
+                addChatMessage(input.value.trim(), 'user');
+                input.value = '';
+                
+                // Show typing indicator
+                addTypingIndicator();
+                
+                // Generate intelligent response
+                setTimeout(() => {
+                    removeTypingIndicator();
+                    const response = generateIntelligentResponse(message);
+                    addChatMessage(response, 'bot');
+                    
+                    // Speak the response if voice is enabled
+                    speakResponse(response);
+                }, 1500);
+            }
+        }
+
+        function generateIntelligentResponse(message) {
+            // Service request triggers
+            if (message.includes('request') || message.includes('quote') || message.includes('hire') || message.includes('order') || message.includes('get started') || message.includes('need service')) {
+                setTimeout(() => {
+                    addChatMessage("I'd be happy to help you get started! Let me open our service request form where you can provide detailed information about your project. This will help us give you an accurate quote and timeline.", 'bot');
+                    speakResponse("I'd be happy to help you get started! Let me open our service request form for you.");
+                    setTimeout(() => {
+                        openServiceRequestModal();
+                    }, 1000);
+                }, 500);
+                return "Perfect! I can help you request a service. Let me get that set up for you...";
+            }
+
+            // Service-related keywords
+            if (message.includes('website') || message.includes('web development') || message.includes('site')) {
+                return "We create stunning, responsive websites that drive results! Our web development service includes custom design, mobile optimization, and SEO. Would you like to request a quote for your website project? Just say 'request service' and I'll open our detailed form!";
+            }
+            
+            if (message.includes('copywriting') || message.includes('copy') || message.includes('writing')) {
+                return "Our copywriting service creates compelling content that converts! We write sales pages, email campaigns, product descriptions, and more. Ready to get started? Say 'request service' and I'll help you submit a detailed project request!";
+            }
+            
+            if (message.includes('video') || message.includes('editing') || message.includes('reel')) {
+                return "We offer professional video editing and reel creation services! From social media content to promotional videos, we make your brand shine. Want to request a quote? Just say 'request service' and I'll open our project form!";
+            }
+            
+            if (message.includes('ppt') || message.includes('presentation') || message.includes('powerpoint')) {
+                return "Our PPT creation service delivers stunning presentations that captivate your audience! We design professional slides for business pitches, training materials, and more. Ready to get started? Say 'request service' for a detailed quote!";
+            }
+            
+            if (message.includes('analysis') || message.includes('report') || message.includes('data')) {
+                return "We provide comprehensive analysis reports with actionable insights! Our data analysis helps you make informed business decisions. Want to request this service? Just say 'request service' and I'll help you get started!";
+            }
+            
+            if (message.includes('script') || message.includes('scriptwriting')) {
+                return "Our scriptwriting service creates engaging scripts for videos, presentations, and marketing campaigns! We help bring your ideas to life with compelling narratives. Ready to request a quote? Say 'request service'!";
+            }
+            
+            // Pricing inquiries
+            if (message.includes('price') || message.includes('cost') || message.includes('pricing') || message.includes('how much')) {
+                return "Our pricing varies based on project scope and requirements. We offer competitive rates for all our services. Would you like me to connect you with our team for a custom quote? You can also email us at ahbabgada905@gmail.com!";
+            }
+            
+            // Contact information
+            if (message.includes('contact') || message.includes('reach') || message.includes('phone') || message.includes('email')) {
+                return "You can reach us at:\n📧 Email: ahbabgada905@gmail.com\n📞 Phone: +91 8979956377\n💼 LinkedIn: linkedin.com/in/mohd-ahbab-589b66294\n📱 Instagram: @ahbabgada1\n\nWe're available 24/7 to help you!";
+            }
+            
+            // About company
+            if (message.includes('about') || message.includes('company') || message.includes('who are you')) {
+                return "Intent Hedge Fund is a premium digital services company! We specialize in website development, copywriting, content creation, video editing, PPT design, and analysis reports. We've completed 500+ projects with 98% client satisfaction!";
+            }
+            
+            // Timeline questions
+            if (message.includes('time') || message.includes('how long') || message.includes('duration') || message.includes('deadline')) {
+                return "Project timelines vary based on complexity and scope. Simple projects can be completed in 2-3 days, while complex ones may take 1-2 weeks. We always work to meet your deadlines! What's your project timeline?";
+            }
+            
+            // Portfolio/examples
+            if (message.includes('portfolio') || message.includes('example') || message.includes('work') || message.includes('sample')) {
+                return "We'd love to show you our work! With 500+ completed projects, we have extensive experience across all our services. Please contact us at ahbabgada905@gmail.com to see relevant portfolio samples for your project type!";
+            }
+            
+            // Greetings
+            if (message.includes('hello') || message.includes('hi') || message.includes('hey') || message.includes('good morning') || message.includes('good afternoon')) {
+                return "Hello! Welcome to Intent Hedge Fund! 👋 I'm here to help you with information about our premium digital services. What can I assist you with today?";
+            }
+            
+            // Thank you
+            if (message.includes('thank') || message.includes('thanks')) {
+                return "You're very welcome! 😊 Is there anything else I can help you with regarding our services? I'm here to assist you!";
+            }
+            
+            // Default response for unrecognized queries
+            const defaultResponses = [
+                "I'd be happy to help you with that! Our services include website development, copywriting, content writing, video editing, PPT creation, and analysis reports. Which service interests you most?",
+                "That's a great question! Let me connect you with the right information. You can reach our team directly at ahbabgada905@gmail.com or +91 8979956377 for detailed assistance.",
+                "I want to make sure I give you the best answer! Could you tell me more about what specific service you're interested in? We offer web development, copywriting, video editing, and more!",
+                "Thanks for your interest in Intent Hedge Fund! For the most accurate information about your specific needs, I recommend contacting our team directly. What service can we help you with?"
+            ];
+            
+            return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+        }
+
+        function addTypingIndicator() {
+            const chatMessages = document.getElementById('chatMessages');
+            const typingDiv = document.createElement('div');
+            typingDiv.id = 'typingIndicator';
+            typingDiv.className = 'bg-blue-100 text-gray-800 p-3 rounded-lg max-w-xs';
+            typingDiv.innerHTML = '<p><i class="fas fa-circle animate-pulse"></i> <i class="fas fa-circle animate-pulse" style="animation-delay: 0.2s;"></i> <i class="fas fa-circle animate-pulse" style="animation-delay: 0.4s;"></i> Intent Assistant is typing...</p>';
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function removeTypingIndicator() {
+            const typingIndicator = document.getElementById('typingIndicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        function addChatMessage(message, sender) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            
+            if (sender === 'user') {
+                messageDiv.className = 'bg-blue-600 text-white p-3 rounded-lg max-w-xs ml-auto';
+            } else {
+                messageDiv.className = 'bg-blue-100 text-gray-800 p-3 rounded-lg max-w-xs';
+            }
+            
+            messageDiv.innerHTML = `<p>${message}</p>`;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function handleChatKeypress(event) {
+            if (event.key === 'Enter') {
+                sendChatMessage();
+            }
+        }
+
+        // Mobile Menu Functions
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.add('hidden');
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const loginModal = document.getElementById('loginModal');
+            const signupModal = document.getElementById('signupModal');
+            const serviceRequestModal = document.getElementById('serviceRequestModal');
+            
+            if (event.target === loginModal) {
+                closeLoginModal();
+            }
+            if (event.target === signupModal) {
+                closeSignupModal();
+            }
+            if (event.target === serviceRequestModal) {
+                closeServiceRequestModal();
+            }
+        }
+
+        // Add scroll animations
+        window.addEventListener('scroll', () => {
+            const elements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0) translateX(0)';
+                }
+            });
+        });
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add typing animation to chatbot
+            const chatbotButton = document.getElementById('chatbotButton');
+            setInterval(() => {
+                chatbotButton.classList.add('typing-animation');
+                setTimeout(() => {
+                    chatbotButton.classList.remove('typing-animation');
+                }, 2000);
+            }, 10000);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96a87c6a64186ef8',t:'MTc1NDQxOTg4OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
